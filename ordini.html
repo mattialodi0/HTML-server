@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <main>
+            <h1>Ordini</h1>
+            <div id="data"></div>
+            <button id="btn">ok</button>
+        </main>
+        <script>
+            const json = localStorage.getItem('form');
+            const obj = JSPN.parse(json);
+            for(key in obj) {
+                const markup = '
+                <div>
+                    <span>${key}: ${obj[key]}</span>
+                </div>
+                ';
+                document.getElementById('data').innerHTML += markup;
+            }
+        </script>
+    </body>
+</html>

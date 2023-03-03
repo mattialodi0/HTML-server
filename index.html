@@ -1,25 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Colors</title>
-    <link href="css/styles.css" type="text/css" rel="stylesheet" />
-  </head>
-  <body>
-    <h1>PH scale</h1>
-    <p class="fourteen">14 Alkaline</p>
-    <p class="thirteen">13</p>
-    <p class="twelve">12</p>
-    <p class="eleven">11</p>
-    <p class="ten">10</p>
-    <p class="nine">9</p>
-    <p class="eight">8</p>
-    <p class="seven">7 Neutral</p>
-    <p class="six">6</p>
-    <p class="five">5</p>
-    <p class="four">4</p>
-    <p class="three">3</p>
-    <p class="two">2</p>
-    <p class="one">1</p>
-    <p class="zero">0 Acid</p>
-  </body>
+    <head>
+        <title>IlForno...</title>
+        <script>
+            const form = document.querySelector('form');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                e.preventDefault(); // Prevent HTML refresh
+                const formData = new FormData(form); // Converts to array of arrays
+                const obj = Object.fromEntries(formData); // Array of arrays to object
+
+                window.location.href = "ordini.html";
+            });
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Prenotazione Pane</h1>
+        </header>
+        <main>
+            <section>
+                <h2>Il Forno ...</h2>
+                <figure><img src="" alt="pane con farina di grani antichi"></figure>
+                <figure><img src="" alt="pane con farina di grano duro"></figure>
+                <figure><img src="" alt="pane farina di farro"></figure>
+                <figure><img src="" alt="pane agicolo"></figure>                
+            </section>
+            <section>
+                <h2>Fai il tuo ordine</h2>
+                <form>
+                    <p>
+                        <label>Nome:<input type="text" name="nome" required></label>
+                        <label>Cognome:<input type="text" name="cognome" required></label>
+                    </p>
+                    <table border="1">
+                        <caption>Tipi di pane disponibili</caption>
+                        <thead>
+                            <tr>
+                                <th>tipo</th><th>peso</th><th>prezzo</th><th>quantità</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Grani Antichi</th><td>750gr</td><td>5€</td>
+                                <td><input type="number" name="Grani Antichi" value="0" min="0" max="10" step="1"></td>
+                            </tr>
+                            <tr>
+                                <th>Grano Duro</th><td>1400gr</td><td>10.5€</td>
+                                <td><input type="number" name="Grano Duro" value="0" min="0" max="10" step="1"></td>
+                            </tr>
+                            <tr>
+                                <th>Farro</th><td>1200gr</td><td>9.6€</td>
+                                <td><input type="number" name="Farro" value="0" min="0" max="10" step="1"></td>
+                            </tr>
+                            <tr>
+                                <th>Agricolo</th><td>750gr</td><td>6€</td>
+                                <td><input type="number" name="Agricolo" value="0" min="0" max="10" step="1"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Il totale del tuo ordine è ...€</p>
+                    <p><label><input type="submit" name="invia"></label></p>
+                </form>
+            </section>
+        </main>
+        <footer></footer>
+    </body>
 </html>
