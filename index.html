@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>IlForno...</title>
-    </head>
-    <body>
-        <header>
-            <h1>Il Forno ...</h1>
-        </header>
-        <main>
-            <section>
-                <h2>I nostri tipi di pane</h2>
-                <figure><img src="" alt="pane con farina di grani antichi"></figure>
-                <figure><img src="" alt="pane con farina di grano duro"></figure>
-                <figure><img src="" alt="pane farina di farro"></figure>
-                <figure><img src="" alt="pane agicolo"></figure>                
-            </section>
-            <section>
-                <h2>Fai il tuo ordine</h2>
-                <form>
-                    <p>
-                        <label>Nome:<input type="text" name="nome" required></label>
-                        <label>Cognome:<input type="text" name="cognome" required></label>
-                    </p>
-                    <table border="1">
-                        <caption>Tipi di pane disponibili</caption>
-                        <thead>
-                            <tr>
-                                <th>tipo</th><th>peso</th><th>prezzo</th><th>quantità</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>Grani Antichi</th><td>750gr</td><td>5€</td>
-                                <td><input type="number" name="Grani Antichi" value="0" min="0" max="10" step="1"></td>
-                            </tr>
-                            <tr>
-                                <th>Grano Duro</th><td>1400gr</td><td>10.5€</td>
-                                <td><input type="number" name="Grano Duro" value="0" min="0" max="10" step="1"></td>
-                            </tr>
-                            <tr>
-                                <th>Farro</th><td>1200gr</td><td>9.6€</td>
-                                <td><input type="number" name="Farro" value="0" min="0" max="10" step="1"></td>
-                            </tr>
-                            <tr>
-                                <th>Agricolo</th><td>750gr</td><td>6€</td>
-                                <td><input type="number" name="Agricolo" value="0" min="0" max="10" step="1"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p>Il totale del tuo ordine è ...€</p>
-                    <p><label><input type="submit" name="invia"></label></p>
-                </form>
-            </section>
-        </main>
-        <footer></footer>
-    </body>
+  <head>
+    <title>IlForno...</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <header>
+      <h1>Il Forno ...</h1>
+    </header>
+    <main>
+      <section>
+          <h2>I nostri tipi di pane</h2>
+          <figure><img src="" alt="pane con farina di grani antichi"></figure>
+          <figure><img src="" alt="pane con farina di grano duro"></figure>
+          <figure><img src="" alt="pane farina di farro"></figure>
+          <figure><img src="" alt="pane agicolo"></figure>                
+      </section>
+      <section>
+        <h2>Fai il tuo ordine</h2>
+        <form>
+          <p>
+            <label>Nome:<input type="text" name="nome" required></label>
+            <label>Cognome:<input type="text" name="cognome" required></label>
+          </p>
+          <table border="1">
+            <caption>Tipi di pane disponibili</caption>
+            <thead>
+              <tr>
+                <th>tipo</th><th>peso</th><th>prezzo</th><th>quantità</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Grani Antichi</th><td>750gr</td><td>5€</td>
+                  <td><input type="number" name="Grani Antichi" value="0" min="0" max="10" step="1"></td>
+                </tr>
+                <tr>
+                  <th>Grano Duro</th><td>1400gr</td><td>10.5€</td>
+                  <td><input type="number" name="Grano Duro" value="0" min="0" max="10" step="1"></td>
+                </tr>
+                <tr>
+                  <th>Farro</th><td>1200gr</td><td>9.6€</td>
+                  <td><input type="number" name="Farro" value="0" min="0" max="10" step="1"></td>
+                </tr>
+                <tr>
+                  <th>Agricolo</th><td>750gr</td><td>6€</td>
+                  <td><input type="number" name="Agricolo" value="0" min="0" max="10" step="1"></td>
+                </tr>
+              </tbody>
+          </table>
+          <p>Il totale del tuo ordine è ...€</p>
+          <p><label><input type="submit" name="invia"></label></p>
+        </form>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
 </html>
