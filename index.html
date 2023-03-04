@@ -51,17 +51,6 @@
                     <p>Il totale del tuo ordine è ...€</p>
                     <p><label><input type="submit" name="invia"></label></p>
                 </form>
-                <script>
-                    const form = document.querySelector('form');
-                    form.addEventListener('submit', (e) => {
-                        e.preventDefault();
-                        e.preventDefault(); // Prevent HTML refresh
-                        const formData = new FormData(form); // Converts to array of arrays
-                        const obj = Object.fromEntries(formData); // Array of arrays to object
-        
-                        window.location.href = "ordini.html";
-                    });
-                </script>
             </section>
         </main>
         <footer></footer>
