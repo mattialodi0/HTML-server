@@ -1,0 +1,36 @@
+
+body {
+  background-color: lemonchiffon;
+  font-family:Tahoma, sans-serif;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+h1, h2 {
+  color:saddlebrown;
+}
+
+h1 {
+  font-size: 3em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+h2 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.img2, .img4 {
+
+}   
+
+table {
+  margin-left: 36%;
+}
+
+.table-title {
+    font-weight: bold;
+}
