@@ -23,7 +23,7 @@ h2 {
   padding-bottom: 5px;
 }
 
-#nome, #cognome {
+.nome, .cognome {
     display: block;
 }   
 
