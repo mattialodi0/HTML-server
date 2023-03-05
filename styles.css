@@ -23,13 +23,9 @@ h2 {
   padding-bottom: 5px;
 }
 
-.img2, .img4 {
-
+#nome, #cognome {
+    display: block;
 }   
-
-table {
-  /*margin-left: 36%;*/
-}
 
 .table-title {
     font-weight: bold;
