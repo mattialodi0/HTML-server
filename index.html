@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </head>
   <body>
     <header>
@@ -21,7 +21,7 @@
       </section>
       <section>
         <h2>Fai il tuo ordine</h2>
-        <!-- <form> -->
+        <form>
           <p>
             <label class="nome" for="nome">Nome: <input type="text" name="nome" id="nome" required></label>
             <label class="cognome" for="cognome">Cognome: <input type="text" name="cognome" id="cognome" required></label>
@@ -53,8 +53,12 @@
               </tbody>
           </table>
           <p id="total-price">Il totale del tuo ordine è di: 0€</p>
-          <p><label for="invia"><input type="submit" name="invia" id="invia"></label></p>
-        <!-- </form> -->
+          <p><label for="submit"><input type="submit" id="submit"></input></label></p>
+        </form>
+      </section>
+      <section>
+        <p>ordini:</p>
+        <ul id="orders"></ul>
       </section>
     </main>
     <footer></footer>
