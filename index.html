@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js"></script>
   </head>
   <body>
     <header>
@@ -20,7 +21,7 @@
       </section>
       <section>
         <h2>Fai il tuo ordine</h2>
-        <form>
+        <!-- <form> -->
           <p>
             <label class="nome" for="nome">Nome: <input type="text" name="nome" id="nome" required></label>
             <label class="cognome" for="cognome">Cognome: <input type="text" name="cognome" id="cognome" required></label>
@@ -35,25 +36,25 @@
             <tbody>
               <tr>
                 <th>Grani Antichi</th><td>750gr</td><td>5€</td>
-                  <td><input type="number" name="Grani Antichi" value="0" min="0" max="10" step="1"></td>
+                  <td><input type="number" class="type Grani-Antichi" value="0" min="0" max="10" step="1" onclick="updateTotal()"></td>
                 </tr>
                 <tr>
                   <th>Grano Duro</th><td>1400gr</td><td>10.5€</td>
-                  <td><input type="number" name="Grano Duro" value="0" min="0" max="10" step="1"></td>
+                  <td><input type="number" class="type Grano-Duro" value="0" min="0" max="10" step="1" onclick="updateTotal()"></td>
                 </tr>
                 <tr>
                   <th>Farro</th><td>1200gr</td><td>9.6€</td>
-                  <td><input type="number" name="Farro" value="0" min="0" max="10" step="1"></td>
+                  <td><input type="number" class="type Farro" value="0" min="0" max="10" step="1" onclick="updateTotal()"></td>
                 </tr>
                 <tr>
                   <th>Agricolo</th><td>750gr</td><td>6€</td>
-                  <td><input type="number" name="Agricolo" value="0" min="0" max="10" step="1"></td>
+                  <td><input type="number" class="type Agricolo" value="0" min="0" max="10" step="1" onclick="updateTotal()"></td>
                 </tr>
               </tbody>
           </table>
-          <p>Il totale del tuo ordine è ...€</p>
+          <p id="total-price">Il totale del tuo ordine è di: 0€</p>
           <p><label for="invia"><input type="submit" name="invia" id="invia"></label></p>
-        </form>
+        <!-- </form> -->
       </section>
     </main>
     <footer></footer>
