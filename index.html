@@ -42,8 +42,8 @@
             x = sensor.x * 100;
             y = sensor.y * 100;
             z = sensor.z * -33;
-            ball.style.left = (ball.offsetLeft + x/10)+"px";
-            ball.style.top = (ball.offsetTop - y/10)+"px";
+            ball.style.left = (ball.offsetLeft + y/10)+"px";
+            ball.style.top = (ball.offsetTop - x/10)+"px";
             ball.style.transform = "rotate("+z/10+"deg)";
         };
         sensor.onerror = errorHandler;
