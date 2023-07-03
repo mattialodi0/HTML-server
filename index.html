@@ -8,19 +8,24 @@
 </head>
 
 <body>
-    <h1>Luce: </h1>
+    <h1 id="h">Luce: </h1>
     <script>
         if ("AmbientLightSensor" in window) {
             const sensor = new AmbientLightSensor();
             sensor.addEventListener("reading", (event) => {
                 console.log("Current light level:", sensor.illuminance);
-                const h = document.getElementsByTagName("h1");
+                const h = document.getElementsById("h");
                 h.innerText = `Luce: ${sensor.illuminance}`;
             });
             sensor.addEventListener("error", (event) => {
                 console.log(event.error.name, event.error.message);
             });
             sensor.start();
+        }
+        else {
+            const e = document.createElement("p");
+            p.innerText = "errore";
+            document.querySelector("body").appendChild(p);
         }
     </script>
 </body>
