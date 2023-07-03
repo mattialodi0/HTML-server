@@ -37,7 +37,45 @@
             }
 
             window.addEventListener("devicelight", onUpdateDeviceLight);
+        }
     </script>
 </body>
 
 </html>
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light sensor</title>
+</head>
+
+<body>
+    <h1 id="h">Luce: </h1>
+    <script>
+        if ("AmbientLightSensor" in window) {
+            const sensor = new AmbientLightSensor();
+            sensor.addEventListener("reading", (event) => {
+                console.log("Current light level:", sensor.illuminance);
+                const h = document.getElementsById("h");
+                h.innerText = `Luce: ${sensor.illuminance}`;
+            });
+            sensor.addEventListener("error", (event) => {
+                console.log(event.error.name, event.error.message);
+            });
+            sensor.start();
+        }
+        else {
+            const e = document.createElement("p");
+            e.innerText = "errore";
+            document.querySelector("body").appendChild(e);
+        }
+    </script>
+</body>
+
+</html>
+-->
