@@ -4,78 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Light sensor</title>
+    <title>Geolocation API</title>
 </head>
 
 <body>
-    <p>Current light intensity is <b id="value">unknown</b>.</p>
-    <div id="box"></div>
+    <button id="find-me">Show my location</button><br />
+    <p id="status"></p>
+    <a id="map-link" target="_blank"></a>
 
     <script>
-        function update(illuminance) {
-            document.getElementById("value").innerHTML = illuminance + " lux";
+        function geoFindMe() {
+            const status = document.querySelector("#status");
+            const mapLink = document.querySelector("#map-link");
 
-            var colorPart = Math.min(255, illuminance).toFixed(0);
-            document.getElementById("box").style.backgroundColor =
-                "rgb(" + colorPart + ", " + colorPart + ", " + colorPart + ")";
-        }
+            mapLink.href = "";
+            mapLink.textContent = "";
 
-        if ("AmbientLightSensor" in window) {
-            try {
-                var sensor = new AmbientLightSensor();
-                sensor.addEventListener("reading", function (event) {
-                    update(sensor.illuminance);
-                });
-                sensor.start();
-            } catch (e) {
-                console.error(e);
-            }
-        }
-        if ("ondevicelight" in window) {
-            function onUpdateDeviceLight(event) {
-                update(event.value);
+            function success(position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+
+                status.textContent = "";
+                mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+                mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
             }
 
-            window.addEventListener("devicelight", onUpdateDeviceLight);
+            function error() {
+                status.textContent = "Unable to retrieve your location";
+            }
+
+            if (!navigator.geolocation) {
+                status.textContent = "Geolocation is not supported by your browser";
+            } else {
+                status.textContent = "Locating…";
+                navigator.geolocation.getCurrentPosition(success, error);
+            }
         }
+
+        document.querySelector("#find-me").addEventListener("click", geoFindMe);
+
     </script>
 </body>
 
 </html>
-
-
-<!--
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Light sensor</title>
-</head>
-
-<body>
-    <h1 id="h">Luce: </h1>
-    <script>
-        if ("AmbientLightSensor" in window) {
-            const sensor = new AmbientLightSensor();
-            sensor.addEventListener("reading", (event) => {
-                console.log("Current light level:", sensor.illuminance);
-                const h = document.getElementsById("h");
-                h.innerText = `Luce: ${sensor.illuminance}`;
-            });
-            sensor.addEventListener("error", (event) => {
-                console.log(event.error.name, event.error.message);
-            });
-            sensor.start();
-        }
-        else {
-            const e = document.createElement("p");
-            e.innerText = "errore";
-            document.querySelector("body").appendChild(e);
-        }
-    </script>
-</body>
-
-</html>
--->
