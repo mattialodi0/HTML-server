@@ -10,11 +10,13 @@
 <body>
     <button id="find-me">Show my location</button><br />
     <p id="status"></p>
+    <p id="coord"></p>
     <a id="map-link" target="_blank"></a>
 
     <script>
         function geoFindMe() {
             const status = document.querySelector("#status");
+            const coord = document.querySelector("#coord");
             const mapLink = document.querySelector("#map-link");
 
             mapLink.href = "";
@@ -25,8 +27,9 @@
                 const longitude = position.coords.longitude;
 
                 status.textContent = "";
+                coord.innerText = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
                 mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
-                mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+                mapLink.textContent = `view in the map`;
             }
 
             function error() {
