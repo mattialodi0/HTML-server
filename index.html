@@ -1,55 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Light sensor</title>
 </head>
+
 <body>
-    <!-- https://www.w3.org/TR/gyroscope/ -->
-<style>
-    body{ 
-        background:black; 
-        color:white; 
-    }
-    #ball{ 
-        position: absolute; 
-        border-radius: 100%; 
-        outline: #FFF dashed 20px; 
-        background: radial-gradient(#fff7a7,#ffd100); 
-        width: 150px; 
-        height: 150px; 
-        left: 45%; 
-        top: 35%;
-        transition: left 0.2s linear, top 0.2s linear, transform 0.2s linear;
-    }
-    </style>
-    <div id="report_box"></div>
-    <div id="ball"></div>
+    <h1>Luce: </h1>
     <script>
-        let sensor = new Gyroscope();
-        let x, y, z, report;
-        sensor.start();
-        sensor.onreading = () => {
-            report = "X-axis Angle Velocity: " + sensor.x + "<br>";
-            report += "Y-axis Angle Velocity: " + sensor.y + "<br>";
-            report += "Z-axis Angle Velocity: " + sensor.z + "<br>";
-            report += "Ball current X = "+ball.offsetLeft+"<br>";
-            report += "Ball current Y= "+ball.offsetTop+"<br>";
-            report += "Ball current Rotation= "+z+"deg<br>";
-            report_box.innerHTML = report;
-            x = sensor.x * 100;
-            y = sensor.y * 100;
-            z = sensor.z * -33;
-            ball.style.left = (ball.offsetLeft + y/10)+"px";
-            ball.style.top = (ball.offsetTop + x/10)+"px";
-            ball.style.transform = "rotate("+z/10+"deg)";
-        };
-        sensor.onerror = errorHandler;
-        function errorHandler(event){
-            console.log(event.error.name, event.error.message);
+        if ("AmbientLightSensor" in window) {
+            const sensor = new AmbientLightSensor();
+            sensor.addEventListener("reading", (event) => {
+                console.log("Current light level:", sensor.illuminance);
+                const h = document.getElementsByTagName("h1");
+                h.innerText = `Luce: ${sensor.illuminance}`;
+            });
+            sensor.addEventListener("error", (event) => {
+                console.log(event.error.name, event.error.message);
+            });
+            sensor.start();
         }
-    </script>    
+    </script>
 </body>
+
 </html>
