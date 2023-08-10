@@ -4,20 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibration test</title>
+    <title>Notification test</title>
 </head>
 
 <body>
-    <p>Vibration test</p>
+    <h1>Notification test</h1>
 
     <script>
+        function notify() {
+            soundEffect();
+            vibrate();
+        }
+        function soundEffect() {
+            var snd = new Audio("sound_effect.mp3");
+            snd.play();
+        }
         function vibrate() {
             navigator.vibrate(500);
         }
     </script>
 
-    <button class="button" onclick="vibrate()">vibrate</button>
-
+    <button class="button" onclick="notify()">notify</button>
 </body>
 
 </html>
