@@ -11,8 +11,13 @@
     <p>Vibration test</p>
 
     <script>
-        navigator.vibrate(200);
+        function vibrate() {
+            navigator.vibrate(500);
+        }
     </script>
+
+    <button class="button" onclick="vibrate()">📳</button>
+
 </body>
 
 </html>
