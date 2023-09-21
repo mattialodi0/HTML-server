@@ -27,16 +27,16 @@ const constraints = {
   }
 };
 
-cameraOptions.onchange = () => {
-  const updatedConstraints = {
-    ...constraints,
-    deviceId: {
-      exact: cameraOptions.value
-    }
-  };
+// cameraOptions.onchange = () => {
+//   const updatedConstraints = {
+//     ...constraints,
+//     deviceId: {
+//       exact: cameraOptions.value
+//     }
+//   };
 
   startStream(updatedConstraints);
-};
+// };
 
 play.onclick = () => {
   if (streamStarted) {
