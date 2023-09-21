@@ -1,31 +1,35 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notification test</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
-
 <body>
-    <h1>Notification test</h1>
+<div class="display-cover">
+    <video autoplay></video>
+    <canvas class="d-none"></canvas>
 
-    <script>
-        function notify() {
-            soundEffect();
-            vibrate();
-        }
-        function soundEffect() {
-            var snd = new Audio("https://github.com/mattyk0207/HTML-server/raw/main/sound_effect.mp3");    //https://raw.githubusercontent.com/mattyk0207/HTML-server/blob/main/sound_effect.mp3
-            snd.play();
-        }
-        function vibrate() {
-            navigator.vibrate(500);
-        }
-    </script>
+    <div class="video-options">
+        <select name="" id="" class="custom-select">
+            <option value="">Select camera</option>
+        </select>
+    </div>
 
-    <button class="button" onclick="notify()">notify</button>
+    <img class="screenshot-image d-none" alt="">
+
+    <div class="controls">
+        <button class="btn btn-danger play" title="Play"><i data-feather="play-circle"></i></button>
+        <button class="btn btn-info pause d-none" title="Pause"><i data-feather="pause"></i></button>
+        <button class="btn btn-outline-success screenshot d-none" title="ScreenShot"><i data-feather="image"></i></button>
+    </div>
+</div>
+
+<script src="https://unpkg.com/feather-icons"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
