@@ -1,7 +1,7 @@
 
 var video, canvas, ctx;
 if(navigator && navigator.mediaDevices){
-    const options = { audio: false, video: { facingMode: "user", width: 300, height: 300  } }
+    const options = { audio: false, video: { facingMode: "environment", width: 300, height: 300  } }
     navigator.mediaDevices.getUserMedia(options)
     .then(function(stream) {
         video = document.querySelector('video');
