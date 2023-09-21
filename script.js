@@ -50,7 +50,7 @@ play.onclick = () => {
       ...constraints,
       deviceId: {
         // exact: cameraOptions.value
-        'exact': facingMode: { exact: "environment" }
+        exact: facingMode: { exact: "environment" }
       }
     };
     startStream(updatedConstraints);
