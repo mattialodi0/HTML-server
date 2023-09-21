@@ -35,7 +35,7 @@ const constraints = {
 //     }
 //   };
 
-  startStream(updatedConstraints);
+  startStream(constraints);
 // };
 
 play.onclick = () => {
