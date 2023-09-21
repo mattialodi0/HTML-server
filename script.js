@@ -14,14 +14,14 @@ const [play, pause, screenshot] = buttons;
 const constraints = {
   video: {
     width: {
-      min: 1280,
-      ideal: 1920,
-      max: 2560,
+      min: 128,
+      ideal: 192,
+      max: 256,
     },
     height: {
-      min: 720,
-      ideal: 1080,
-      max: 1440
+      min: 72,
+      ideal: 108,
+      max: 144
     },
   }
 };
