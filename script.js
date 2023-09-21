@@ -1,8 +1,6 @@
-
 feather.replace();
 
 const controls = document.querySelector('.controls');
-const cameraOptions = document.querySelector('.video-options>select');
 const video = document.querySelector('video');
 const canvas = document.querySelector('canvas');
 const screenshotImage = document.querySelector('img');
@@ -13,30 +11,20 @@ const [play, pause, screenshot] = buttons;
 
 const constraints = {
   video: {
-    facingMode: 'environment',
     width: {
-      min: 128,
-      ideal: 192,
-      max: 256,
+      min: 1280,
+      ideal: 1920,
+      max: 2560,
     },
     height: {
-      min: 72,
-      ideal: 108,
-      max: 144
+      min: 720,
+      ideal: 1080,
+      max: 1440
     },
   }
 };
 
-// cameraOptions.onchange = () => {
-//   const updatedConstraints = {
-//     ...constraints,
-//     deviceId: {
-//       exact: cameraOptions.value
-//     }
-//   };
-
-  startStream(constraints);
-// };
+startStream(constraints);
 
 play.onclick = () => {
   if (streamStarted) {
@@ -49,8 +37,7 @@ play.onclick = () => {
     const updatedConstraints = {
       ...constraints,
       deviceId: {
-        // exact: cameraOptions.value
-        exact: facingMode: { exact: "environment" }
+        exact: cameraOptions.value
       }
     };
     startStream(updatedConstraints);
@@ -71,8 +58,8 @@ const doScreenshot = () => {
   screenshotImage.classList.remove('d-none');
 };
 
-pause.onclick = pauseStream;
-screenshot.onclick = doScreenshot;
+pause.addEventListener('click', pauseStream);
+screenshot.addEventListener('click', doScreenshot);
 
 const startStream = async (constraints) => {
   const stream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -87,15 +74,3 @@ const handleStream = (stream) => {
   screenshot.classList.remove('d-none');
 
 };
-
-
-const getCameraSelection = async () => {
-  const devices = await navigator.mediaDevices.enumerateDevices();
-  const videoDevices = devices.filter(device => device.kind === 'videoinput');
-  const options = videoDevices.map(videoDevice => {
-    return `<option value="${videoDevice.deviceId}">${videoDevice.label}</option>`;
-  });
-  cameraOptions.innerHTML = options.join('');
-};
-
-getCameraSelection();
