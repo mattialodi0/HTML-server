@@ -13,6 +13,7 @@ const [play, pause, screenshot] = buttons;
 
 const constraints = {
   video: {
+    facingMode: 'environment',
     width: {
       min: 128,
       ideal: 192,
